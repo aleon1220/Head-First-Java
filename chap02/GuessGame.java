@@ -13,9 +13,9 @@ public class GuessGame {
        int guessp1 = 0;
        int guessp2 = 0;
        int guessp3 = 0;
-       boolean p1isRight = false;
-       boolean p2isRight = false;
-       boolean p3isRight = false;
+       boolean p1isRight = 1;
+       boolean p2isRight = 1;
+       boolean p3isRight = 1;
        int targetNumber = (int) (Math.random() * 10);
        System.out.println("I'm thinking of a number between 0 and 9...");
        while(true) {
@@ -32,15 +32,17 @@ public class GuessGame {
            guessp3 = p3.number;
            System.out.println("Player three guessed " + guessp3);
            
-           if (guessp1 == targetNumber) {
-               p1isRight = true;
+           if (guessp1 != targetNumber) {
+               p1isRight = 0;
            }
-           if (guessp2 == targetNumber) {
-               p2isRight = true;
+           if (guessp2 != targetNumber) {
+               p2isRight = 0;
            }
-           if (guessp3 == targetNumber) {
-               p3isRight = true;
+           if (guessp3 != targetNumber) {
+               p3isRight = 0;
            }
+           //changed when the guessed number is not equal to target number, then it would be false(or 0) otehrwise true (1)
+
            
            if (p1isRight || p2isRight || p3isRight)
            {
