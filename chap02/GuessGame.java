@@ -19,11 +19,15 @@ public class GuessGame {
        int guessp1 = 0;
        int guessp2 = 0;
        int guessp3 = 0;
+     
+       boolean p1isRight = 1;
+       boolean p2isRight = 1;
+       boolean p3isRight = 1;
        
        // Variables to track if each player has guessed correctly
-       boolean p1isRight = false;
-       boolean p2isRight = false;
-       boolean p3isRight = false;
+       boolean player1isRight = false;
+       boolean player2isRight = false;
+       boolean player3isRight = false;
        
        // Generate a random number between 0 and 9 as the target number
        int targetNumber = (int) (Math.random() * 10);
@@ -46,16 +50,17 @@ public class GuessGame {
            guessp3 = p3.number;
            System.out.println("Player three guessed " + guessp3);
            
-           // Check each player's guess against the target number
-           if (guessp1 == targetNumber) {
-               p1isRight = true;
+           if (guessp1 != targetNumber) {
+               p1isRight = 0;
            }
-           if (guessp2 == targetNumber) {
-               p2isRight = true;
+           if (guessp2 != targetNumber) {
+               p2isRight = 0;
            }
-           if (guessp3 == targetNumber) {
-               p3isRight = true;
+           if (guessp3 != targetNumber) {
+               p3isRight = 0;
            }
+           //changed when the guessed number is not equal to target number, then it would be false(or 0) otehrwise true (1)
+
            
            // If any player guessed correctly, announce the winners and end the game
            if (p1isRight || p2isRight || p3isRight) {
